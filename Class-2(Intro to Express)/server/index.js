@@ -21,7 +21,11 @@ app.get("/courses/:id", (req, res) => {
 
   // solution for this
 
+
   let course = courses.find((course) => course.id === parseInt(req.params.id));
+  if(!course){
+        res.status(404).send('Did not find the course')
+      }
   res.send(course);
 });
 
@@ -42,8 +46,36 @@ app.post('/courses'  , (req , res)=>{
 
 // update a resource
 
+app.put('/courses/:id', (req , res)=>{
+      let course = courses.find((course) => course.id === parseInt(req.params.id));
+
+      if(!course){
+        res.status(404).send('Did not find the course')
+      }
+
+      course.name = req.body.name
+
+      res.send(course)
+
+
+})
+
 
 // delete a resource
+
+app.put('/courses/:id', (req , res)=>{
+      let course = courses.find((course) => course.id === parseInt(req.params.id));
+
+      if(!course){
+        res.status(404).send('Did not find the course')
+      }
+
+    // Delete the course
+
+
+})
+
+
 
 
 
