@@ -41,6 +41,7 @@ app.post('/courses'  , (req , res)=>{
       }
 
       courses.push(course)
+      console.log(courses)
       res.send(courses)
 })
 
