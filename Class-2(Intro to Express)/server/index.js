@@ -2,16 +2,24 @@ const express = require('express')
 
 const app = express()
 
-app.get('/', (req , res)=>{
-  res.send('Hello from Home Page')
+
+let courses= [
+    {id:1 , name:'Java'},
+    {id:2 , name:'DBMS'},
+    {id:3 , name:'JavaScript'},
+]
+
+// Get all Courses
+app.get('/courses' , (req , res)=>{
+   res.send(courses) 
 })
 
-app.get('/about', (req , res)=>{
-  res.send('Hello from About Page')
-})
+// get a course by id
+app.get('/courses/:id' , (req , res)=>{
+//    console.log(req.params)
+//    res.send(courses)
 
-app.get('/contact', (req , res)=>{
-  res.send('Hello from Contact')
+ 
 })
 
 
