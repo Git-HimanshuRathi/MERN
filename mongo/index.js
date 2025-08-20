@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const app = express();
+app.use(express.json())
 
 mongoose
   .connect(
@@ -15,13 +16,13 @@ mongoose
   });
 
 let productSchema = new mongoose.Schema({
-  proudctName: {
+  product_name: {
     type: String,
     required: true,
   },
 
   product_price: {
-    type: String,
+    type: Number,
     required: true,
   },
 
@@ -37,6 +38,31 @@ let productSchema = new mongoose.Schema({
 
 
 let ProductModel = mongoose.model('products', productSchema)
+
+
+
+
+
+
+app.get('/', (req ,res)=>{
+   res.send('Server on')
+})
+
+app.post('/api/products', async (req ,res)=>{
+  const body = req.body
+
+     await ProductModel.create({
+        product_name: body.product_name,
+        product_price : body.product_price,
+        isInStock:body.isInStock,
+        category : body.category
+     })
+
+     res.status(201).json({message: 'Product Created'})
+  
+
+
+})
 
 app.listen(8080, () => {
   console.log("server Running");
