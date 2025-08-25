@@ -1,16 +1,10 @@
-const express = require('express')
+const express = require("express");
+const ProductModel = require("../models/product.js");
+const {createproduct , updateProduct}  = require('../controllers/productControllers.js')
 
-const router = express.Router()
+const router = express.Router();
 
+router.post("/createproduct",createproduct );
+router.put('/updateProduct' , updateProduct )
 
-router.get('/getproducts' , (req , res)=>{
-    res.send('All Products')
-})
-
-router.get('/getsingle' , (req , res)=>{
-    res.send('Single Product')
-})
-
-
-module.exports = router
-
+module.exports = router;
