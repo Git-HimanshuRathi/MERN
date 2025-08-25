@@ -1,0 +1,4 @@
+pass - > f6XyAD5DL9Td4app
+username- mrinal
+
+mongodb+srv://mrinal:f6XyAD5DL9Td4app@cluster0.8aifpdh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
