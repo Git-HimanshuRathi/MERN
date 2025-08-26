@@ -1,6 +1,5 @@
 const ProductModel = require("../models/product.js");
 
-
 async function createproduct(req, res) {
   const body = req.body;
 
@@ -16,6 +15,7 @@ async function createproduct(req, res) {
 
 async function updateProduct(req , res){
  // you have to finish
+  
 }
 
 module.exports = {
